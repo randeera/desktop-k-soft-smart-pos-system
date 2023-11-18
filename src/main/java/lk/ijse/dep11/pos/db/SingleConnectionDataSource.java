@@ -25,4 +25,8 @@ public class SingleConnectionDataSource {
     public static SingleConnectionDataSource getInstance() throws IOException {
         return (instance== null) ? (instance =new SingleConnectionDataSource() ): instance;
     }
+
+    public Connection getConnection() {
+        return connection;
+    }
 }
