@@ -13,11 +13,11 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="475.0" prefWidth="618.0" style="-fx-background-color: white;" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/19.0.2.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.pos.controller.SearchOrdersFormController">
+<AnchorPane fx:id="root" prefHeight="770.0" prefWidth="1050.0" style="-fx-background-color: white;" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.pos.controller.SearchOrdersFormController">
    <children>
-      <TextField fx:id="txtSearch" layoutX="14.0" layoutY="117.0" prefHeight="28.0" prefWidth="622.0" promptText="Eg. Kasun Sampath, C001, etc." />
+      <TextField fx:id="txtSearch" layoutX="14.0" layoutY="117.0" prefHeight="28.0" prefWidth="1018.0" promptText="Eg. Kasun Sampath, C001, etc." />
       <Label layoutX="14.0" layoutY="90.0" text="Enter something to search here" />
-      <TableView fx:id="tblOrders" layoutX="14.0" layoutY="155.0" onMouseClicked="#tblOrders_OnMouseClicked" prefHeight="308.0" prefWidth="622.0">
+      <TableView fx:id="tblOrders" layoutX="14.0" layoutY="155.0" onMouseClicked="#tblOrders_OnMouseClicked" prefHeight="548.0" prefWidth="1024.0">
         <columns>
           <TableColumn prefWidth="75.0" text="Order ID" />
           <TableColumn prefWidth="102.0" text="Order Date" />
@@ -47,6 +47,19 @@
       <Label layoutX="95.0" layoutY="23.0" text="Search Orders">
          <font>
             <Font name="Lucida Sans Demibold" size="27.0" />
+         </font>
+      </Label>
+      <ImageView id="imgHome" fitHeight="65.0" fitWidth="122.0" layoutX="903.0" layoutY="9.0" onMouseClicked="#navigateToHome" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asset/k-soft.gif" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="218.0" layoutY="714.0" prefHeight="39.0" prefWidth="635.0" text="Copyright © 2023 Kaveendra Randeera. All Rights Reserved.">
+         <font>
+            <Font size="16.0" />
          </font>
       </Label>
    </children>
