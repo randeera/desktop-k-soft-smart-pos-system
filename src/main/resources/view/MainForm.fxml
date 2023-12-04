@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="root" prefHeight="766.0" prefWidth="1041.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.pos.controller.MainFormController">
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="770.0" prefWidth="1050.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.pos.controller.MainFormController">
    <children>
       <ImageView fitHeight="164.0" fitWidth="296.0" layoutX="373.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -63,7 +63,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="228.0" layoutY="702.0" prefHeight="39.0" prefWidth="635.0" text="Copyright © 2023 Kaveendra Randeera. All Rights Reserved.">
+      <Label alignment="CENTER" layoutX="208.0" layoutY="704.0" prefHeight="39.0" prefWidth="635.0" text="Copyright © 2023 Kaveendra Randeera. All Rights Reserved.">
          <font>
             <Font size="16.0" />
          </font>

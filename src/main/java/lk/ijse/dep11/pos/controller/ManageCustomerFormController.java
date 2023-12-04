@@ -24,19 +24,14 @@ public class ManageCustomerFormController {
     public JFXButton btnDelete;
     public TableView tblCustomers;
 
+    //********************** Navigation to Home ********************************************
     public void navigateToHome(MouseEvent mouseEvent) throws IOException {
-        URL resource = this.getClass().getResource("/view/MainForm.fxml");
-        Parent root = FXMLLoader.load(resource);
-        Scene scene = new Scene(root);
-        Stage primaryStage = (Stage) (this.root.getScene().getWindow());
-        primaryStage.setScene(scene);
-        primaryStage.centerOnScreen();
-        Platform.runLater(primaryStage::sizeToScene);
+        MainFormController.navigateToMain(root);
     }
     //********************** Add New Customer Button ****************************************
     public void btnAddNew_OnAction(ActionEvent actionEvent) {
     }
-    //********************** Save Button **************************************************
+    //********************** Save Button ***************************************************
     public void btnSave_OnAction(ActionEvent actionEvent) {
     }
     //********************** Delete Button **************************************************

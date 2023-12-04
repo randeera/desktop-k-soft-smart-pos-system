@@ -7,6 +7,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -17,6 +18,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import lk.ijse.dep11.pos.AppInitializer;
 
 import java.io.IOException;
 import java.net.URL;
@@ -135,6 +137,18 @@ public class MainFormController implements Initializable {
                 tt.play();
             }
         }
+    }
+    //navigation to home
+    public static void navigateToMain(Node rootNode) throws IOException {
+        Parent root = FXMLLoader.load(AppInitializer.class.getResource("/view/MainForm.fxml"));
+        Scene scene = new Scene(root);
+        Stage primaryStage = (Stage) (rootNode.getScene().getWindow());
+        primaryStage.setResizable(true);
+        primaryStage.setScene(scene);
+        primaryStage.sizeToScene();
+        primaryStage.centerOnScreen();
+        primaryStage.setOnCloseRequest(null);
+        Platform.runLater(()-> primaryStage.setResizable(false));
     }
 
 }
