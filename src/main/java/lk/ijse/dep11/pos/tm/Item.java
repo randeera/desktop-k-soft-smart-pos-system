@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 public class Item implements Serializable {
     private String code;
     private String description;
-    private int quantity;
+    private int qty;
     private BigDecimal unitPrice;
 
     @Override

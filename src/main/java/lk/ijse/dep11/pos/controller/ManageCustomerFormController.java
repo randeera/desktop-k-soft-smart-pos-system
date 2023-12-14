@@ -72,25 +72,23 @@ public class ManageCustomerFormController {
 
 
     //********************** Add New Customer Button ****************************************
-    public void btnAddNew_OnAction(ActionEvent actionEvent) {
-        public void btnAddNew_OnAction(ActionEvent actionEvent) throws IOException {
-            for (TextField textField : new TextField[]{txtCustomerId, txtCustomerName, txtCustomerAddress})
-                textField.clear();
-            tblCustomers.getSelectionModel().clearSelection();
-            txtCustomerName.requestFocus();
-            try {
-                String lastCustomerId = CustomerDataAccess.getLastCustomerId();
-                if (lastCustomerId == null) {
-                    txtCustomerId.setText("C001");
-                } else {
-                    int newId = Integer.parseInt(lastCustomerId.substring(1)) + 1;
-                    txtCustomerId.setText(String.format("C%03d", newId));
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-                new Alert(Alert.AlertType.ERROR, "Failed to establish the database connection, try again").show();
-                navigateToHome(null);
+    public void btnAddNew_OnAction(ActionEvent actionEvent) throws IOException {
+        for (TextField textField : new TextField[]{txtCustomerId, txtCustomerName, txtCustomerAddress})
+            textField.clear();
+        tblCustomers.getSelectionModel().clearSelection();
+        txtCustomerName.requestFocus();
+        try {
+            String lastCustomerId = CustomerDataAccess.getLastCustomerId();
+            if (lastCustomerId == null) {
+                txtCustomerId.setText("C001");
+            } else {
+                int newId = Integer.parseInt(lastCustomerId.substring(1)) + 1;
+                txtCustomerId.setText(String.format("C%03d", newId));
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Failed to establish the database connection, try again").show();
+            navigateToHome(null);
         }
     }
     //********************** Save Button ***************************************************

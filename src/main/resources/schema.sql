@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS item (
     code        VARCHAR(30) PRIMARY KEY ,
     description VARCHAR (200) NOT NULL,
     qty         INT ,
-    unitPrice   DECIMAL(8,2)
+    unit_price   DECIMAL(8,2)
 );
 
 CREATE TABLE IF NOT EXISTS "order" (
