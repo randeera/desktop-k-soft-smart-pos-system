@@ -5,22 +5,17 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import lk.ijse.dep11.pos.db.CustomerDataAccess;
 import lk.ijse.dep11.pos.db.OrderDataAccess;
 import lk.ijse.dep11.pos.tm.Customer;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.SQLException;
 
 public class ManageCustomerFormController {
@@ -33,13 +28,11 @@ public class ManageCustomerFormController {
     public TableView<Customer> tblCustomers;
     public JFXButton btnAddNew;
 
-
-    //********************** Navigation to Home ********************************************
     public void navigateToHome(MouseEvent mouseEvent) throws IOException {
         MainFormController.navigateToMain(root);
     }
 
-    //********************** Initialize Method ********************************************
+    //Initialize Method
     public void initialize() {
         tblCustomers.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
         tblCustomers.getColumns().get(0).setStyle("-fx-alignment: center;");
@@ -70,8 +63,7 @@ public class ManageCustomerFormController {
         Platform.runLater(txtCustomerName::requestFocus);
     }
 
-
-    //********************** Add New Customer Button ****************************************
+    //Add new Customer Button
     public void btnAddNew_OnAction(ActionEvent actionEvent) throws IOException {
         for (TextField textField : new TextField[]{txtCustomerId, txtCustomerName, txtCustomerAddress})
             textField.clear();
@@ -91,7 +83,7 @@ public class ManageCustomerFormController {
             navigateToHome(null);
         }
     }
-    //********************** Save Button ***************************************************
+    //Save Button
     public void btnSave_OnAction(ActionEvent actionEvent) {
         if (!isDataValid()) return;
 
@@ -114,24 +106,7 @@ public class ManageCustomerFormController {
             new Alert(Alert.AlertType.ERROR, "Failed to save the customer, try again").show();
         }
     }
-    //********************** Delete Button **************************************************
-    public void btnDelete_OnAction(ActionEvent actionEvent) {
-        try {
-            if (OrderDataAccess.existsOrderByCustomerId(txtCustomerId.getText())){
-                new Alert(Alert.AlertType.ERROR,
-                        "Unable to delete this customer, already associated with an order").show();
-            }else{
-                CustomerDataAccess.deleteCustomer(txtCustomerId.getText());
-                ObservableList<Customer> customerList = tblCustomers.getItems();
-                Customer selectedCustomer = tblCustomers.getSelectionModel().getSelectedItem();
-                customerList.remove(selectedCustomer);
-                if (customerList.isEmpty()) btnAddNew.fire();
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    //********************** Data validation ************************************************
+    //Data Validation
     private boolean isDataValid() {
         String name = txtCustomerName.getText().strip();
         String address = txtCustomerAddress.getText().strip();
@@ -147,5 +122,23 @@ public class ManageCustomerFormController {
         }
 
         return true;
+    }
+
+    //Delete Button
+    public void btnDelete_OnAction(ActionEvent actionEvent) {
+        try {
+            if (OrderDataAccess.existsOrderByCustomerId(txtCustomerId.getText())){
+                new Alert(Alert.AlertType.ERROR,
+                        "Unable to delete this customer, already associated with an order").show();
+            }else{
+                CustomerDataAccess.deleteCustomer(txtCustomerId.getText());
+                ObservableList<Customer> customerList = tblCustomers.getItems();
+                Customer selectedCustomer = tblCustomers.getSelectionModel().getSelectedItem();
+                customerList.remove(selectedCustomer);
+                if (customerList.isEmpty()) btnAddNew.fire();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
