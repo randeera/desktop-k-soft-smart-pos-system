@@ -41,7 +41,7 @@ public class ManageCustomerFormController {
         txtCustomerId.setEditable(false);
         btnDelete.setDisable(true);
         btnSave.setDefaultButton(true);
-        btnAddNew.fire();
+        //btnAddNew.fire();
         try {
             tblCustomers.getItems().addAll(CustomerDataAccess.getAllCustomers());
         } catch (SQLException e) {
@@ -100,7 +100,7 @@ public class ManageCustomerFormController {
                 customerList.set(customerList.indexOf(selectedCustomer), customer);
                 tblCustomers.refresh();
             }
-            btnAddNew.fire();
+            //btnAddNew.fire();
         } catch (SQLException e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Failed to save the customer, try again").show();

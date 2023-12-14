@@ -1,6 +1,10 @@
 package lk.ijse.dep11.pos.db;
 
 import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -24,6 +28,13 @@ public class SingleConnectionDataSource {
     }
     public static SingleConnectionDataSource getInstance() throws IOException {
         return (instance== null) ? (instance =new SingleConnectionDataSource() ): instance;
+    }
+    private void generateSchema() throws Exception {
+        URL url = getClass().getResource("/schema.sql");
+        Path path = Paths.get(url.toURI());
+        String dbScript = Files.readAllLines(path).stream()
+                .reduce((prevLine, currentLine) -> prevLine + currentLine).get();
+        connection.createStatement().execute(dbScript);
     }
 
     public Connection getConnection() {

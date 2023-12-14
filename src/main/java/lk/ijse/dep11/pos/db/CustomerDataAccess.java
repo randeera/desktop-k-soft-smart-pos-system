@@ -31,8 +31,6 @@ public class CustomerDataAccess {
             STM_DELETE = connection.prepareStatement("DELETE FROM customer WHERE id=?");
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
         }
     }
 
