@@ -6,19 +6,16 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Customer implements Serializable {
     private String id;
     private String name;
     private String address;
 
     @Override
-    public String toString(){
+    public String toString() {
         return id;
     }
-
-
 }

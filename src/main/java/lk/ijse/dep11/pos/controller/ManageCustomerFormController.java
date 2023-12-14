@@ -32,7 +32,6 @@ public class ManageCustomerFormController {
         MainFormController.navigateToMain(root);
     }
 
-    //Initialize Method
     public void initialize() {
         tblCustomers.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
         tblCustomers.getColumns().get(0).setStyle("-fx-alignment: center;");
@@ -41,7 +40,7 @@ public class ManageCustomerFormController {
         txtCustomerId.setEditable(false);
         btnDelete.setDisable(true);
         btnSave.setDefaultButton(true);
-        //btnAddNew.fire();
+        btnAddNew.fire();
         try {
             tblCustomers.getItems().addAll(CustomerDataAccess.getAllCustomers());
         } catch (SQLException e) {
@@ -63,7 +62,6 @@ public class ManageCustomerFormController {
         Platform.runLater(txtCustomerName::requestFocus);
     }
 
-    //Add new Customer Button
     public void btnAddNew_OnAction(ActionEvent actionEvent) throws IOException {
         for (TextField textField : new TextField[]{txtCustomerId, txtCustomerName, txtCustomerAddress})
             textField.clear();
@@ -83,7 +81,7 @@ public class ManageCustomerFormController {
             navigateToHome(null);
         }
     }
-    //Save Button
+
     public void btnSave_OnAction(ActionEvent actionEvent) {
         if (!isDataValid()) return;
 
@@ -100,13 +98,13 @@ public class ManageCustomerFormController {
                 customerList.set(customerList.indexOf(selectedCustomer), customer);
                 tblCustomers.refresh();
             }
-            //btnAddNew.fire();
+            btnAddNew.fire();
         } catch (SQLException e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Failed to save the customer, try again").show();
         }
     }
-    //Data Validation
+
     private boolean isDataValid() {
         String name = txtCustomerName.getText().strip();
         String address = txtCustomerAddress.getText().strip();
@@ -124,7 +122,6 @@ public class ManageCustomerFormController {
         return true;
     }
 
-    //Delete Button
     public void btnDelete_OnAction(ActionEvent actionEvent) {
         try {
             if (OrderDataAccess.existsOrderByCustomerId(txtCustomerId.getText())){

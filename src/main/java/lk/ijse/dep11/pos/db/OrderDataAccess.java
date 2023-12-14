@@ -3,7 +3,6 @@ package lk.ijse.dep11.pos.db;
 import lk.ijse.dep11.pos.tm.Order;
 import lk.ijse.dep11.pos.tm.OrderItem;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
@@ -44,7 +43,7 @@ public class OrderDataAccess {
                     "ON o.id = order_total.id\n" +
                     "WHERE o.id LIKE ? OR CAST(o.date AS VARCHAR(20)) LIKE ? OR o.customer_id LIKE ? OR c.name LIKE ? " +
                     "ORDER BY o.id");
-        } catch (SQLException | IOException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
@@ -66,7 +65,7 @@ public class OrderDataAccess {
     }
 
     public static void saveOrder(String orderId, Date orderDate, String customerId,
-                                 List<OrderItem> orderItemList) throws SQLException, IOException {
+                                 List<OrderItem> orderItemList)throws SQLException{
         SingleConnectionDataSource.getInstance().getConnection().setAutoCommit(false);
         try {
             /* 1. Save Order */

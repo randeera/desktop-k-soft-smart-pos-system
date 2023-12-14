@@ -4,6 +4,7 @@ import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -127,18 +128,22 @@ public class MainFormController implements Initializable {
             if (root != null) {
                 Scene subScene = new Scene(root);
                 Stage primaryStage = (Stage) this.root.getScene().getWindow();
+                primaryStage.setResizable(true);
                 primaryStage.setScene(subScene);
                 primaryStage.sizeToScene();
                 primaryStage.centerOnScreen();
+                primaryStage.setOnCloseRequest(Event::consume);
 
                 TranslateTransition tt = new TranslateTransition(Duration.millis(350), subScene.getRoot());
                 tt.setFromX(-subScene.getWidth());
                 tt.setToX(0);
                 tt.play();
+
+                Platform.runLater(()-> primaryStage.setResizable(false));
             }
         }
     }
-    //navigation to home
+
     public static void navigateToMain(Node rootNode) throws IOException {
         Parent root = FXMLLoader.load(AppInitializer.class.getResource("/view/MainForm.fxml"));
         Scene scene = new Scene(root);
@@ -150,5 +155,4 @@ public class MainFormController implements Initializable {
         primaryStage.setOnCloseRequest(null);
         Platform.runLater(()-> primaryStage.setResizable(false));
     }
-
 }

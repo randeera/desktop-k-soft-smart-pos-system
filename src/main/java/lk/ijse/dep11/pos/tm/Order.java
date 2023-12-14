@@ -8,10 +8,9 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Order implements Serializable {
-
     private String orderId;
     private String orderDate;
     private String customerId;

@@ -2,7 +2,6 @@ package lk.ijse.dep11.pos.db;
 
 import lk.ijse.dep11.pos.tm.Customer;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
