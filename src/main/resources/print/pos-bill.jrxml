@@ -273,7 +273,7 @@
 				<textElement textAlignment="Center">
 					<font fontName="Ubuntu" size="8"/>
 				</textElement>
-				<text><![CDATA[Copyright (c) 2023 DEP-11. All Rights Reserved.]]></text>
+				<text><![CDATA[Copyright (c) 2023 Kaveendra Randeera. All Rights Reserved.]]></text>
 			</staticText>
 		</band>
 	</pageFooter>
