@@ -44,7 +44,7 @@
       <JFXTextField fx:id="txtCustomerName" labelFloat="true" layoutX="512.0" layoutY="117.0" prefHeight="28.0" prefWidth="437.0" promptText="Customer Name :" />
       <JFXTextField fx:id="txtDescription" labelFloat="true" layoutX="512.0" layoutY="163.0" prefHeight="28.0" prefWidth="437.0" promptText="Item Description :" />
       <JFXTextField fx:id="txtQtyOnHand" labelFloat="true" layoutX="107.0" layoutY="210.0" prefHeight="28.0" prefWidth="296.0" promptText="Qty. on Hand" />
-      <JFXButton id="btnSave" fx:id="btnSave" layoutX="875.0" layoutY="211.0" onAction="#btnAdd_OnAction" prefHeight="28.0" prefWidth="74.0" style="-fx-cursor: hand;" text="Add" />
+      <JFXButton id="btnSave" fx:id="btnSave" layoutX="875.0" layoutY="211.0" onAction="#btnAdd_OnAction" prefHeight="28.0" prefWidth="74.0" style="-fx-cursor: hand;" text="ADD" />
       <TableView fx:id="tblOrderDetails" layoutX="17.0" layoutY="280.0" prefHeight="382.0" prefWidth="1016.0">
         <columns>
           <TableColumn prefWidth="77.0" text="Code" />
@@ -75,7 +75,7 @@
             <Font size="32.0" />
          </font>
       </Label>
-      <JFXButton id="btnSave" fx:id="btnPlaceOrder" layoutX="906.0" layoutY="679.0" onAction="#btnPlaceOrder_OnAction" prefHeight="35.0" prefWidth="119.0" style="-fx-cursor: hand; -fx-background-color: orange; -fx-text-fill: black; -fx-font-size: 16px;" text="Place Order" />
+      <JFXButton id="btnSave" fx:id="btnPlaceOrder" layoutX="906.0" layoutY="679.0" onAction="#btnPlaceOrder_OnAction" prefHeight="35.0" prefWidth="119.0" style="-fx-cursor: hand; -fx-background-color: orange; -fx-text-fill: black; -fx-font-size: 16px;" text="PLACE ORDER" />
       <Label alignment="CENTER" layoutX="218.0" layoutY="714.0" prefHeight="39.0" prefWidth="635.0" text="Copyright © 2023 Kaveendra Randeera. All Rights Reserved.">
          <font>
             <Font size="16.0" />

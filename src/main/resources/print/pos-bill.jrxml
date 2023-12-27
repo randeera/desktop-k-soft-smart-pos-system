@@ -30,14 +30,14 @@
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Ubuntu" size="10" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Institute of Software Engineering]]></text>
+				<text><![CDATA[KSoft Computer Shop]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="32" width="216" height="19" uuid="eb8ab53d-291c-47d5-999b-912fb139eb14"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Ubuntu"/>
 				</textElement>
-				<text><![CDATA[Grace Peries Road, Panadura]]></text>
+				<text><![CDATA[Mahawela Road, Tangalle]]></text>
 			</staticText>
 		</band>
 	</title>
