@@ -91,28 +91,19 @@ public class ManageCustomerFormController {
         Customer customer = new Customer(txtCustomerId.getText(),
                 txtCustomerName.getText().strip(), txtCustomerAddress.getText().strip());
         try {
-            System.out.println("hello1");
             if (btnSave.getText().equals("SAVE")){
                 CustomerDataAccess.saveCustomer(customer);
                 tblCustomers.getItems().add(customer);
-                System.out.println("hello2");
             }else{
-                System.out.println("hello3");
                 CustomerDataAccess.updateCustomer(customer);
-                System.out.println("hello4");
                 ObservableList<Customer> customerList = tblCustomers.getItems();
-                System.out.println("hello5");
                 Customer selectedCustomer = tblCustomers.getSelectionModel().getSelectedItem();
-                System.out.println("hello6");
                 customerList.set(customerList.indexOf(selectedCustomer), customer);
-                System.out.println("hello7");
                 tblCustomers.refresh();
-                System.out.println("hello8");
             }
             btnAddNew.fire();
-            System.out.println("hello9");
+
         } catch (SQLException e) {
-            System.out.println("hello10");
             System.out.println();
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Failed to save the customer, try again").show();
